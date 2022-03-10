@@ -62,7 +62,7 @@ $ go run setup.go
 
 ```console
 
-# ( Optional ) Build the server
+# ( Optional ) Build the server - not recommended due to "allowed IPs"
 
 $ go build server.go
 

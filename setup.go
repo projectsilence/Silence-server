@@ -13,12 +13,13 @@ import (
 	"context"
 	"time"
 	//"crypto/md5"
+	"os/exec"
 	)
 
 const (
 	username = "root"
 	password = "rootpassword"
-	hostname = "127.0.0.1:3306"
+	hostname = "127.0.0.1:3306" //DON'T USE A PUBLIC IP UNLESS YOU KNOW WHAT YOU'RE DOING
 	dbname = "basicsilenceserver"
 )
 
@@ -77,18 +78,6 @@ func main() {
 
 	log.Printf("[ Silence Server ] - Finished setting up keys")
 	log.Printf("[ Silence Server ] - Setting up MySQL Database")
-
-	/*
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("[ Silence Server ] - Enter desired SQL admin username\n> ")
-	const username = reader.ReadString('\n')
-	fmt.Println("[ Silence Server ] - Enter desired SQL admin password\n> ")
-	const password = reader.ReadString('\n')
-	fmt.Println("[ Silence Server ] - Enter desired hostname (127.0.0.1:3306 recommended\n> ")
-	const hostname = reader.ReadString('\n')
-	fmt.Println("[ Silence Server ] - Enter database name\n> ")
-	const dbname = reader.ReadString('\n')
-	*/
 
 	db, err := sql.Open("mysql", dsn(""))
     if err != nil {
